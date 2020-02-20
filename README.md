@@ -7,4 +7,5 @@ Sistema de Controle de Estoque e Vendas - Desktop
 * Criação do modelo Usuario Mapeamento Usando Hibernate Jpa
 * Inclusao do Flyway no Projeto para migração dos Dados do BD - Deshabilitado geração automatica de entidades
 * Criação da VewLogin e seu controller
-* Criação da Interface  Usuarios como Repository de Usuario   
+* Criação da Interface  Usuarios como Repository de Usuario 
+* Criação da Interface UsuariosQueries e Implementacao de metodo  validarLoginSenha
