@@ -11,11 +11,16 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ControllerPrincipal {
 
+    //Caso nao sejam Autowired e obrigatorio o Constructor
     @Autowired
     private ViewPrincipal viewPrincipal;
+    
+    @Autowired
+    private ControllerLogin controllerLogin;
 
     @Autowired
     public void exibirView() {
-        this.viewPrincipal.setVisible(true);
+        this.viewPrincipal.setVisible(false);
+        this.controllerLogin.exibirView();
     }
 }
