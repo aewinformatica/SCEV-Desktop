@@ -1,5 +1,9 @@
 package com.aewinformatica.scev.desktop.view;
 
+import com.aewinformatica.scev.desktop.model.Usuario;
+import com.aewinformatica.scev.desktop.service.LoginService;
+import javax.swing.JOptionPane;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,7 +12,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ViewLogin extends javax.swing.JFrame {
-        
+
+    @Autowired
+    private LoginService loginService;
+
     public ViewLogin() {
         initComponents();
     }
@@ -99,7 +106,19 @@ public class ViewLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEntrarMouseClicked
-       
+        Usuario modelUsuario = new Usuario();
+        
+        modelUsuario.setLogin(jTextFieldUser.getText());
+        modelUsuario.setSenha(String.valueOf(jPasswordFieldSenha.getPassword()));
+        
+        if(loginService.validarUsuario(modelUsuario)){
+        
+            new ViewPrincipal().setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+        JOptionPane.showMessageDialog(this, "Usuario/Senha Invalidos","AVISO",JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jLabelEntrarMouseClicked
 
     private void jTextFieldUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserActionPerformed
@@ -109,7 +128,6 @@ public class ViewLogin extends javax.swing.JFrame {
     private void jPasswordFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldSenhaActionPerformed
-      
 
     /**
      * @param args the command line arguments

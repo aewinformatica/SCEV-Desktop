@@ -10,3 +10,4 @@ Sistema de Controle de Estoque e Vendas - Desktop
 * Criação da Interface  Usuarios como Repository de Usuario 
 * Criação da Interface UsuariosQueries e Implementacao de metodo  validarLoginSenha
 * Criação da Camada de Servico UsuarioService para Gerenciar Usuario e metodo validarLoginSenha
+* Criação da Camada de Servico LoginService para manter padrão e utilizar validação do Usuario
