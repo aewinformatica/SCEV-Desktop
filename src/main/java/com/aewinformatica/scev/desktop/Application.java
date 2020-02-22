@@ -23,6 +23,6 @@ public class Application {
         context = builder.run(args);
 
         ControllerPrincipal controllerPrincipal = context.getBean(ControllerPrincipal.class);
-        controllerPrincipal.exibirView();
+        controllerPrincipal.preparaExibirView();
     }
 }

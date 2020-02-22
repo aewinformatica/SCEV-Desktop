@@ -1,6 +1,7 @@
 package com.aewinformatica.scev.desktop.view;
 
 import javax.swing.JFrame;
+import javax.swing.JMenuItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -57,42 +58,17 @@ public class ViewPrincipal extends javax.swing.JFrame {
         jmCadastros.setText("Cadastros");
 
         jmiClientes.setText("Clientes");
-        jmiClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiClientesActionPerformed(evt);
-            }
-        });
         jmCadastros.add(jmiClientes);
 
         jmiProdutos.setText("Produtos");
-        jmiProdutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiProdutosActionPerformed(evt);
-            }
-        });
         jmCadastros.add(jmiProdutos);
 
         jmiUsuarios.setText("Usuarios");
-        jmiUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiUsuariosActionPerformed(evt);
-            }
-        });
         jmCadastros.add(jmiUsuarios);
 
         jMenuBar1.add(jmCadastros);
 
         jmVendas.setText("Vendas");
-        jmVendas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jmVendasMouseClicked(evt);
-            }
-        });
-        jmVendas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmVendasActionPerformed(evt);
-            }
-        });
         jMenuBar1.add(jmVendas);
 
         setJMenuBar(jMenuBar1);
@@ -115,33 +91,9 @@ public class ViewPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jmiSairActionPerformed
 
-    private void jmiClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiClientesActionPerformed
-
-        /*
-        ViewCliente viewCliente = new ViewCliente();
-                    viewCliente.setVisible(true);*/
-        //SIMPLIFICADO O ACIMA
-//        new ViewCliente().setVisible(true);
-    }//GEN-LAST:event_jmiClientesActionPerformed
-
-    private void jmiProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProdutosActionPerformed
-//        ViewProduto viewProduto = new ViewProduto();
-//                    viewProduto.setVisible(true);
-    }//GEN-LAST:event_jmiProdutosActionPerformed
-
-    private void jmiUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiUsuariosActionPerformed
-//        ViewUsuario viewUsuario = new ViewUsuario();
-//                    viewUsuario.setVisible(true);
-    }//GEN-LAST:event_jmiUsuariosActionPerformed
-
-    private void jmVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmVendasActionPerformed
-        
-    }//GEN-LAST:event_jmVendasActionPerformed
-
-    private void jmVendasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmVendasMouseClicked
-//    new ViewVendas().setVisible(true);
-    }//GEN-LAST:event_jmVendasMouseClicked
-
+    public JMenuItem getMenuItemUsuario() {
+        return jmiUsuarios;
+    }
     /**
      * @param args the command line arguments
      */

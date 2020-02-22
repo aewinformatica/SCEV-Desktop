@@ -1,8 +1,10 @@
 package com.aewinformatica.scev.desktop.view;
 
+import com.aewinformatica.scev.desktop.controller.ControllerLogin;
 import com.aewinformatica.scev.desktop.model.Usuario;
 import com.aewinformatica.scev.desktop.service.LoginService;
-import javax.swing.JOptionPane;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -12,9 +14,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ViewLogin extends javax.swing.JFrame {
-
+    
     @Autowired
-    private LoginService loginService;
+    private ControllerLogin controllerLogin;
 
     public ViewLogin() {
         initComponents();
@@ -51,19 +53,8 @@ public class ViewLogin extends javax.swing.JFrame {
         jTextFieldUser.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jTextFieldUser.setForeground(new java.awt.Color(255, 102, 51));
         jTextFieldUser.setText("admin");
-        jTextFieldUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUserActionPerformed(evt);
-            }
-        });
         getContentPane().add(jTextFieldUser);
         jTextFieldUser.setBounds(250, 170, 280, 30);
-
-        jPasswordFieldSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldSenhaActionPerformed(evt);
-            }
-        });
         getContentPane().add(jPasswordFieldSenha);
         jPasswordFieldSenha.setBounds(250, 230, 280, 30);
 
@@ -106,28 +97,13 @@ public class ViewLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabelEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEntrarMouseClicked
-        Usuario modelUsuario = new Usuario();
+        Usuario usuario = new Usuario();
         
-        modelUsuario.setLogin(jTextFieldUser.getText());
-        modelUsuario.setSenha(String.valueOf(jPasswordFieldSenha.getPassword()));
+        usuario.setLogin(jTextFieldUser.getText());
+        usuario.setSenha(String.valueOf(jPasswordFieldSenha.getPassword()));
         
-        if(loginService.validarUsuario(modelUsuario)){
-        
-            new ViewPrincipal().setVisible(true);
-            this.setVisible(false);
-        }
-        else{
-        JOptionPane.showMessageDialog(this, "Usuario/Senha Invalidos","AVISO",JOptionPane.WARNING_MESSAGE);
-        }
+        controllerLogin.validarUsuario(usuario);
     }//GEN-LAST:event_jLabelEntrarMouseClicked
-
-    private void jTextFieldUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUserActionPerformed
-
-    private void jPasswordFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,7 +146,7 @@ public class ViewLogin extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelCabecalho;
     private javax.swing.JLabel jLabelEntrar;
